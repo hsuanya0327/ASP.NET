@@ -1,0 +1,50 @@
+﻿@model _1091606.Models.TableStudents1091606
+
+@{
+    ViewBag.Title = "會員資訊";
+    Layout = "~/Views/Shared/_FirstLayout.cshtml";
+}
+
+<h2>會員資訊</h2>
+
+<div>
+
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            姓名:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sName)
+        </dd>
+        <dt>
+            E-mail:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sEmail)
+        </dd>
+
+        <dt>
+            手機:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sPhone)
+        </dd>
+
+        <dt>
+            性別
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sGender)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <h3>@Html.ActionLink("修改資料", "StudentEdit", new { login = Model.sLogin })</h3>
+</p>

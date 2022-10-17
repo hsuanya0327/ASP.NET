@@ -1,0 +1,42 @@
+﻿@model _1091606.Models.Project
+
+@{
+    ViewBag.Title = "老師資訊";
+}
+<h2>老師資訊-@ViewBag.cName</h2>
+<div class="row">
+    <div class="col-md-3">
+        <p>@Html.ActionLink("全部", "AllPageIndex", new { page = 1 }) </p>
+        @foreach (var item in Model.Class)
+        {
+            <p>
+                @Html.ActionLink(item.cName, "TeacherIndex", new { cId = item.cId })
+            </p>
+        }
+    </div>
+    <div class="col-md-9">
+        <table class="table">
+            <tr>
+                <th>科目</th>
+                <th>老師姓名</th>
+                <th>性別</th>
+                <th>價錢</th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model.Teacher)
+            {
+        <tr>
+            <td>@Model.Class.Where(m => m.cId == item.cId).FirstOrDefault().cName</td>
+            <td>@item.tName</td>
+            <td>@item.tGender</td>
+            <td>@item.tPrice</td>
+            <td>
+                @Html.ActionLink("加入", "CartAdd", new { id = item.tId })
+            </td>
+            <td></td>
+        </tr>
+            }
+        </table>
+    </div>
+</div>
+

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<_1091606.Models.TableCarts1091606>
+
+@{
+    ViewBag.Title = "選購的課程";
+    Layout = "~/Views/Shared/_FirstLayout.cshtml";
+}
+
+<h2>您選購的課程</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            會員姓名
+        </th>
+        <th>
+            選購科目
+        </th>
+        <th>
+            選購老師
+        </th>
+        <th>
+            價錢
+        </th>
+        <th></th>
+        <th>總價</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.TableStudents1091606.sName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TableTeachers1091606.TableClasss1091606.cName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TableTeachers1091606.tName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TableTeachers1091606.tPrice)
+    </td>
+    <td>
+        @Html.ActionLink("刪除", "CartDelete", new { carId = item.cartId },
+             new { onclicked = "return confirm('您確定要刪除嗎?');", @class = "btn btn-danger" })
+    </td>
+    <td> </td>
+</tr>
+}
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>@ViewBag.total</td>
+    </tr>
+</table>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+    </div>
+</div>
+

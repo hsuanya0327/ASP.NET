@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="netdbAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TableCarts1091606">
+          <Key>
+            <PropertyRef Name="cartId" />
+          </Key>
+          <Property Name="cartId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tId" Type="int" />
+          <Property Name="sLogin" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="TableClasss1091606">
+          <Key>
+            <PropertyRef Name="cId" />
+          </Key>
+          <Property Name="cId" Type="int" Nullable="false" />
+          <Property Name="cName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TableStudents1091606">
+          <Key>
+            <PropertyRef Name="sLogin" />
+          </Key>
+          <Property Name="sName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="sLogin" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="sPwd" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="sEmail" Type="varchar" MaxLength="30" />
+          <Property Name="sPhone" Type="char" MaxLength="10" />
+          <Property Name="sGender" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="TableTeachers1091606">
+          <Key>
+            <PropertyRef Name="tId" />
+          </Key>
+          <Property Name="tId" Type="int" Nullable="false" />
+          <Property Name="tName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="cId" Type="int" Nullable="false" />
+          <Property Name="tGender" Type="nchar" MaxLength="1" />
+          <Property Name="tPrice" Type="int" />
+        </EntityType>
+        <Association Name="FK__TableCart__sLogi__71A7CADF">
+          <End Role="TableStudents1091606" Type="Self.TableStudents1091606" Multiplicity="0..1" />
+          <End Role="TableCarts1091606" Type="Self.TableCarts1091606" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableStudents1091606">
+              <PropertyRef Name="sLogin" />
+            </Principal>
+            <Dependent Role="TableCarts1091606">
+              <PropertyRef Name="sLogin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TableCarts1__tId__70B3A6A6">
+          <End Role="TableTeachers1091606" Type="Self.TableTeachers1091606" Multiplicity="0..1" />
+          <End Role="TableCarts1091606" Type="Self.TableCarts1091606" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableTeachers1091606">
+              <PropertyRef Name="tId" />
+            </Principal>
+            <Dependent Role="TableCarts1091606">
+              <PropertyRef Name="tId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TableTeache__cId__7C5A637C">
+          <End Role="TableClasss1091606" Type="Self.TableClasss1091606" Multiplicity="1" />
+          <End Role="TableTeachers1091606" Type="Self.TableTeachers1091606" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableClasss1091606">
+              <PropertyRef Name="cId" />
+            </Principal>
+            <Dependent Role="TableTeachers1091606">
+              <PropertyRef Name="cId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="netdbAModelStoreContainer">
+          <EntitySet Name="TableCarts1091606" EntityType="Self.TableCarts1091606" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TableClasss1091606" EntityType="Self.TableClasss1091606" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TableStudents1091606" EntityType="Self.TableStudents1091606" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TableTeachers1091606" EntityType="Self.TableTeachers1091606" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__TableCart__sLogi__71A7CADF" Association="Self.FK__TableCart__sLogi__71A7CADF">
+            <End Role="TableStudents1091606" EntitySet="TableStudents1091606" />
+            <End Role="TableCarts1091606" EntitySet="TableCarts1091606" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TableCarts1__tId__70B3A6A6" Association="Self.FK__TableCarts1__tId__70B3A6A6">
+            <End Role="TableTeachers1091606" EntitySet="TableTeachers1091606" />
+            <End Role="TableCarts1091606" EntitySet="TableCarts1091606" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TableTeache__cId__7C5A637C" Association="Self.FK__TableTeache__cId__7C5A637C">
+            <End Role="TableClasss1091606" EntitySet="TableClasss1091606" />
+            <End Role="TableTeachers1091606" EntitySet="TableTeachers1091606" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="netdbAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TableCarts1091606">
+          <Key>
+            <PropertyRef Name="cartId" />
+          </Key>
+          <Property Name="cartId" Type="Int32" Nullable="false" />
+          <Property Name="tId" Type="Int32" />
+          <Property Name="sLogin" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TableStudents1091606" Relationship="Self.FK__TableCart__sLogi__75AD65ED" FromRole="TableCarts1091606" ToRole="TableStudents1091606" />
+          <NavigationProperty Name="TableTeachers1091606" Relationship="Self.FK__TableCarts1__tId__6E765879" FromRole="TableCarts1091606" ToRole="TableTeachers1091606" />
+        </EntityType>
+        <EntityType Name="TableClasss1091606">
+          <Key>
+            <PropertyRef Name="cId" />
+          </Key>
+          <Property Name="cId" Type="Int32" Nullable="false" />
+          <Property Name="cName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TableTeachers1091606" Relationship="Self.FK__TableTeache__cId__7C5A637C" FromRole="TableClasss1091606" ToRole="TableTeachers1091606" />
+        </EntityType>
+        <EntityType Name="TableStudents1091606">
+          <Key>
+            <PropertyRef Name="sLogin" />
+          </Key>
+          <Property Name="sName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sLogin" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sPwd" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sEmail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="sPhone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="sGender" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="TableCarts1091606" Relationship="Self.FK__TableCart__sLogi__75AD65ED" FromRole="TableStudents1091606" ToRole="TableCarts1091606" />
+        </EntityType>
+        <EntityType Name="TableTeachers1091606">
+          <Key>
+            <PropertyRef Name="tId" />
+          </Key>
+          <Property Name="tId" Type="Int32" Nullable="false" />
+          <Property Name="tName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cId" Type="Int32" Nullable="false" />
+          <Property Name="tGender" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="TableCarts1091606" Relationship="Self.FK__TableCarts1__tId__6E765879" FromRole="TableTeachers1091606" ToRole="TableCarts1091606" />
+          <NavigationProperty Name="TableClasss1091606" Relationship="Self.FK__TableTeache__cId__7C5A637C" FromRole="TableTeachers1091606" ToRole="TableClasss1091606" />
+          <Property Name="tPrice" Type="Int32" />
+        </EntityType>
+        <Association Name="FK__TableCart__sLogi__75AD65ED">
+          <End Role="TableStudents1091606" Type="Self.TableStudents1091606" Multiplicity="0..1" />
+          <End Role="TableCarts1091606" Type="Self.TableCarts1091606" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableStudents1091606">
+              <PropertyRef Name="sLogin" />
+            </Principal>
+            <Dependent Role="TableCarts1091606">
+              <PropertyRef Name="sLogin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TableCarts1__tId__6E765879">
+          <End Role="TableTeachers1091606" Type="Self.TableTeachers1091606" Multiplicity="0..1" />
+          <End Role="TableCarts1091606" Type="Self.TableCarts1091606" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableTeachers1091606">
+              <PropertyRef Name="tId" />
+            </Principal>
+            <Dependent Role="TableCarts1091606">
+              <PropertyRef Name="tId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TableTeache__cId__7C5A637C">
+          <End Role="TableClasss1091606" Type="Self.TableClasss1091606" Multiplicity="1" />
+          <End Role="TableTeachers1091606" Type="Self.TableTeachers1091606" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableClasss1091606">
+              <PropertyRef Name="cId" />
+            </Principal>
+            <Dependent Role="TableTeachers1091606">
+              <PropertyRef Name="cId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProjectModelEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TableCarts1091606" EntityType="Self.TableCarts1091606" />
+          <EntitySet Name="TableClasss1091606" EntityType="Self.TableClasss1091606" />
+          <EntitySet Name="TableStudents1091606" EntityType="Self.TableStudents1091606" />
+          <EntitySet Name="TableTeachers1091606" EntityType="Self.TableTeachers1091606" />
+          <AssociationSet Name="FK__TableCart__sLogi__75AD65ED" Association="Self.FK__TableCart__sLogi__75AD65ED">
+            <End Role="TableStudents1091606" EntitySet="TableStudents1091606" />
+            <End Role="TableCarts1091606" EntitySet="TableCarts1091606" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TableCarts1__tId__6E765879" Association="Self.FK__TableCarts1__tId__6E765879">
+            <End Role="TableTeachers1091606" EntitySet="TableTeachers1091606" />
+            <End Role="TableCarts1091606" EntitySet="TableCarts1091606" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TableTeache__cId__7C5A637C" Association="Self.FK__TableTeache__cId__7C5A637C">
+            <End Role="TableClasss1091606" EntitySet="TableClasss1091606" />
+            <End Role="TableTeachers1091606" EntitySet="TableTeachers1091606" />
+          </AssociationSet>
+          </EntityContainer>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="netdbAModelStoreContainer" CdmEntityContainer="ProjectModelEntities">
+          <EntitySetMapping Name="TableCarts1091606">
+            <EntityTypeMapping TypeName="netdbAModel.TableCarts1091606">
+              <MappingFragment StoreEntitySet="TableCarts1091606">
+                <ScalarProperty Name="cartId" ColumnName="cartId" />
+                <ScalarProperty Name="tId" ColumnName="tId" />
+                <ScalarProperty Name="sLogin" ColumnName="sLogin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TableClasss1091606">
+            <EntityTypeMapping TypeName="netdbAModel.TableClasss1091606">
+              <MappingFragment StoreEntitySet="TableClasss1091606">
+                <ScalarProperty Name="cId" ColumnName="cId" />
+                <ScalarProperty Name="cName" ColumnName="cName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TableStudents1091606">
+            <EntityTypeMapping TypeName="netdbAModel.TableStudents1091606">
+              <MappingFragment StoreEntitySet="TableStudents1091606">
+                <ScalarProperty Name="sName" ColumnName="sName" />
+                <ScalarProperty Name="sLogin" ColumnName="sLogin" />
+                <ScalarProperty Name="sPwd" ColumnName="sPwd" />
+                <ScalarProperty Name="sEmail" ColumnName="sEmail" />
+                <ScalarProperty Name="sPhone" ColumnName="sPhone" />
+                <ScalarProperty Name="sGender" ColumnName="sGender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TableTeachers1091606">
+            <EntityTypeMapping TypeName="netdbAModel.TableTeachers1091606">
+              <MappingFragment StoreEntitySet="TableTeachers1091606">
+                <ScalarProperty Name="tPrice" ColumnName="tPrice" />
+                <ScalarProperty Name="tId" ColumnName="tId" />
+                <ScalarProperty Name="tName" ColumnName="tName" />
+                <ScalarProperty Name="cId" ColumnName="cId" />
+                <ScalarProperty Name="tGender" ColumnName="tGender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

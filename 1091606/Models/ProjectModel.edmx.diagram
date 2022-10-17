@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4d35bb0869394f0eb05809a2fdb47054" Name="Diagram1">
+        <EntityTypeShape EntityType="netdbAModel.TableCarts1091606" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="netdbAModel.TableClasss1091606" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="netdbAModel.TableStudents1091606" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="netdbAModel.TableTeachers1091606" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="netdbAModel.FK__TableCart__sLogi__75AD65ED" ManuallyRouted="false" />
+        <AssociationConnector Association="netdbAModel.FK__TableCarts1__tId__6E765879" ManuallyRouted="false" />
+        <AssociationConnector Association="netdbAModel.FK__TableTeache__cId__7C5A637C" ManuallyRouted="false" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
